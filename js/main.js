@@ -110,4 +110,5 @@ $(document).ready(function ($) {
   //     $('#posts').prepend(post)
   //   }
   // })
+  AOS.init()
 })
