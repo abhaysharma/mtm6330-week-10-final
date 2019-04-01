@@ -130,5 +130,8 @@ $(document).ready(function ($) {
   //     $('#posts').prepend(post)
   //   }
   // })
+
+  // initialize the AOS plugin, to use the AOS plugin you will need to add data-aos attribute with desired values to your HTML
+  // reference the documentation here: https://github.com/michalsnik/aos
   AOS.init()
 })
