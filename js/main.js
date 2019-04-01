@@ -56,20 +56,42 @@ $(document).ready(function ($) {
   /*
     AJAX
   */
+  // loading contents of an HTML document into an element on our page using the load() method
   $('#content').load('./about.html')
+  /* Add click event listener to change the content of the element based on the clicked link's href */
+  // // Target the elements with nav-link class inside the element with id contentNav
+  // // Listen for the click event using the click() method
+  // // Call an anonymous function inside the click() method. Pass an argument e to the function which will reference the triggered event itself
   // $('#contentNav .nav-link').click(function(e){
+  // // Using the argument of e passed to the function prevent the default behaviour of the event
   //   e.preventDefault();
+  // // Using this keyword get the value of href attribute of the clicked link, using attr() method
   //   var page = $(this).attr('href')
+  // // Target the element with id content and load the contents of the page based on the href attribtute value of the clicked link
   //   $('#content').load('./'+page)
   // })
+
+  /* Updating the above example to add fadeOut and fadeIn methods for a smoother transition between the change of content */
+  // Target the elements with nav-link class inside the element with id contentNav
+  // Listen for the click event using the click() method
+  // Call an anonymous function inside the click() method. Pass an argument e to the function which will reference the triggered event itself
   $('#contentNav .nav-link').click(function (e) {
+    // Using the argument of e passed to the function prevent the default behaviour of the event
     e.preventDefault()
+    // Using this keyword get the value of href attribute of the clicked link, using attr() method
     var page = $(this).attr('href')
-    $('.active').removeClass('active')
+    /* Update the navigation link to show the active page */
+    // target the element with class active inside element with id contentNav and remove the class of active from it
+    $('#contentNav .active').removeClass('active')
+    // target the nav-item on which the click is triggered using "this" keyword and add class of active to it
     $(this).addClass('active')
+
+    // Before loading the contnet of the targeted page to the element with id content let's hide it from the page using fadeOut method
     $('#content').fadeOut(500, function () {
+      // Target the element with id content and load the contents of the page based on the href attribtute value of the clicked link
       $('#content').load('./' + page)
     }).fadeIn(500)
+    // display the element with id content to the page using fadeIn method
   })
   /*
   Making an AJAX request from a remote source and using the JSON data
@@ -97,8 +119,6 @@ $(document).ready(function ($) {
   //   type: 'GET',
   //   dataType: 'json'
   // }).done(function (data) {
-  //   var posts = JSON.parse(data)
-  //   // console.log(posts)
   //   var numPosts = data.posts.length
   //   for (var i = 0; i < numPosts; i++) {
   //
